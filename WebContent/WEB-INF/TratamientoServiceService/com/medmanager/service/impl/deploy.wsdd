@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TratamientoServiceService WSDL service -->
+
+  <service name="TratamientoService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.service.medmanager.com"/>
+      <parameter name="wsdlServiceElement" value="TratamientoServiceService"/>
+      <parameter name="schemaQualified" value="http://impl.service.medmanager.com,http://model.medmanager.com"/>
+      <parameter name="wsdlServicePort" value="TratamientoService"/>
+      <parameter name="className" value="com.medmanager.service.impl.TratamientoService"/>
+      <parameter name="wsdlPortType" value="TratamientoService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" name="inactivarTratamientoPorIdTratamiento" qname="operNS:inactivarTratamientoPorIdTratamiento" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idTratamiento" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getClasificacionRiesgo" qname="operNS:getClasificacionRiesgo" returnQName="retNS:getClasificacionRiesgoReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cis" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cantTumores" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tamanoTumores" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tumor" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:grado" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:inicio" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:clasif" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:compromisoUretral" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addTratamientoById" qname="operNS:addTratamientoById" returnQName="retNS:addTratamientoByIdReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:riesgo" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:fechaCero" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:titulo" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cantTumores" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tamañoTumores" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tumor" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:grado" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:inicio" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:clasif" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id_medico" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cis" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id_paciente" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://model.medmanager.com" name="getTratamientosActivosPorId" qname="operNS:getTratamientosActivosPorId" returnQName="retNS:getTratamientosActivosPorIdReturn" returnType="rtns:TratamientoPaciente" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id_medico" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="addTratamientoById getTratamientosActivosPorId inactivarTratamientoPorIdTratamiento getClasificacionRiesgo"/>
+
+      <typeMapping xmlns:ns="http://model.medmanager.com" qname="ns:TratamientoPaciente" type="java:com.medmanager.model.TratamientoPaciente" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

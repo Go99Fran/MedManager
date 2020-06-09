@@ -1,0 +1,39 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from PacienteServiceService WSDL service -->
+
+  <service name="PacienteService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.service.medmanager.com"/>
+      <parameter name="wsdlServiceElement" value="PacienteServiceService"/>
+      <parameter name="schemaQualified" value="http://impl.service.medmanager.com"/>
+      <parameter name="wsdlServicePort" value="PacienteService"/>
+      <parameter name="className" value="com.medmanager.service.impl.PacienteServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="PacienteService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getRiesgoPaciente" qname="operNS:getRiesgoPaciente" xmlns:operNS="http://impl.service.medmanager.com" returnQName="retNS:getRiesgoPacienteReturn" xmlns:retNS="http://impl.service.medmanager.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:t_id" xmlns:pns="http://impl.service.medmanager.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="bajaPaciente" qname="operNS:bajaPaciente" xmlns:operNS="http://impl.service.medmanager.com" soapAction="" >
+        <parameter qname="pns:idPaciente" xmlns:pns="http://impl.service.medmanager.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="altaPaciente" qname="operNS:altaPaciente" xmlns:operNS="http://impl.service.medmanager.com" returnQName="retNS:altaPacienteReturn" xmlns:retNS="http://impl.service.medmanager.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nombre" xmlns:pns="http://impl.service.medmanager.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:mail" xmlns:pns="http://impl.service.medmanager.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:fecha" xmlns:pns="http://impl.service.medmanager.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:apellido" xmlns:pns="http://impl.service.medmanager.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:id_medico" xmlns:pns="http://impl.service.medmanager.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getRiesgoPaciente bajaPaciente altaPaciente"/>
+
+  </service>
+</deployment>

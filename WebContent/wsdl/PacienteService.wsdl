@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.service.medmanager.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.service.medmanager.com" xmlns:intf="http://impl.service.medmanager.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.service.medmanager.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getRiesgoPaciente">
+    <complexType>
+     <sequence>
+      <element name="t_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRiesgoPacienteResponse">
+    <complexType>
+     <sequence>
+      <element name="getRiesgoPacienteReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="bajaPaciente">
+    <complexType>
+     <sequence>
+      <element name="idPaciente" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="bajaPacienteResponse">
+    <complexType/>
+   </element>
+   <element name="altaPaciente">
+    <complexType>
+     <sequence>
+      <element name="nombre" type="xsd:string"/>
+      <element name="mail" type="xsd:string"/>
+      <element name="fecha" type="xsd:string"/>
+      <element name="apellido" type="xsd:string"/>
+      <element name="id_medico" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="altaPacienteResponse">
+    <complexType>
+     <sequence>
+      <element name="altaPacienteReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="bajaPacienteRequest">
+
+      <wsdl:part element="impl:bajaPaciente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bajaPacienteResponse">
+
+      <wsdl:part element="impl:bajaPacienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRiesgoPacienteRequest">
+
+      <wsdl:part element="impl:getRiesgoPaciente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRiesgoPacienteResponse">
+
+      <wsdl:part element="impl:getRiesgoPacienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="altaPacienteResponse">
+
+      <wsdl:part element="impl:altaPacienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="altaPacienteRequest">
+
+      <wsdl:part element="impl:altaPaciente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PacienteService">
+
+      <wsdl:operation name="getRiesgoPaciente">
+
+         <wsdl:input message="impl:getRiesgoPacienteRequest" name="getRiesgoPacienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getRiesgoPacienteResponse" name="getRiesgoPacienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="bajaPaciente">
+
+         <wsdl:input message="impl:bajaPacienteRequest" name="bajaPacienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:bajaPacienteResponse" name="bajaPacienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="altaPaciente">
+
+         <wsdl:input message="impl:altaPacienteRequest" name="altaPacienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:altaPacienteResponse" name="altaPacienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PacienteServiceSoapBinding" type="impl:PacienteService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getRiesgoPaciente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getRiesgoPacienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRiesgoPacienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="bajaPaciente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="bajaPacienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="bajaPacienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="altaPaciente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="altaPacienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="altaPacienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PacienteServiceService">
+
+      <wsdl:port binding="impl:PacienteServiceSoapBinding" name="PacienteService">
+
+         <wsdlsoap:address location="http://localhost:8080/MedManager/services/PacienteService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

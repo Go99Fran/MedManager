@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UsuarioServiceService WSDL service -->
+
+  <service name="UsuarioService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.service.medmanager.com"/>
+      <parameter name="wsdlServiceElement" value="UsuarioServiceService"/>
+      <parameter name="schemaQualified" value="http://impl.service.medmanager.com,http://model.medmanager.com"/>
+      <parameter name="wsdlServicePort" value="UsuarioService"/>
+      <parameter name="className" value="com.medmanager.service.impl.UsuarioService"/>
+      <parameter name="wsdlPortType" value="UsuarioService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="existeMail" qname="operNS:existeMail" returnQName="retNS:existeMailReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://model.medmanager.com" name="logeoUsuario" qname="operNS:logeoUsuario" returnQName="retNS:logeoUsuarioReturn" returnType="rtns:Usuario" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="registrarMedico" qname="operNS:registrarMedico" returnQName="retNS:registrarMedicoReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nombre" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:apellido" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" name="validarUsuario" qname="operNS:validarUsuario" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="esUsuarioConfirmado" qname="operNS:esUsuarioConfirmado" returnQName="retNS:esUsuarioConfirmadoReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" xmlns:retNS="http://impl.service.medmanager.com" xmlns:rtns="http://model.medmanager.com" name="getPacientesActivosPorId" qname="operNS:getPacientesActivosPorId" returnQName="retNS:getPacientesActivosPorIdReturn" returnType="rtns:Usuario" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:usuario_id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.service.medmanager.com" name="olvidoContraseña" qname="operNS:olvidoContraseña" soapAction="">
+        <parameter xmlns:pns="http://impl.service.medmanager.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="validarUsuario registrarMedico logeoUsuario esUsuarioConfirmado olvidoContraseña existeMail getPacientesActivosPorId"/>
+
+      <typeMapping xmlns:ns="http://model.medmanager.com" qname="ns:Usuario" type="java:com.medmanager.model.Usuario" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

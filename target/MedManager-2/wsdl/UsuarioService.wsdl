@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.service.medmanager.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.service.medmanager.com" xmlns:intf="http://impl.service.medmanager.com" xmlns:tns1="http://model.medmanager.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.service.medmanager.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.medmanager.com"/>
+   <element name="existeMail">
+    <complexType>
+     <sequence>
+      <element name="mail" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="existeMailResponse">
+    <complexType>
+     <sequence>
+      <element name="existeMailReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logeoUsuario">
+    <complexType>
+     <sequence>
+      <element name="mail" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logeoUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="logeoUsuarioReturn" type="tns1:Usuario"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registrarMedico">
+    <complexType>
+     <sequence>
+      <element name="mail" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="nombre" type="xsd:string"/>
+      <element name="apellido" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registrarMedicoResponse">
+    <complexType>
+     <sequence>
+      <element name="registrarMedicoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validarUsuario">
+    <complexType>
+     <sequence>
+      <element name="mail" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validarUsuarioResponse">
+    <complexType/>
+   </element>
+   <element name="esUsuarioConfirmado">
+    <complexType>
+     <sequence>
+      <element name="mail" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="esUsuarioConfirmadoResponse">
+    <complexType>
+     <sequence>
+      <element name="esUsuarioConfirmadoReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPacientesActivosPorId">
+    <complexType>
+     <sequence>
+      <element name="usuario_id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPacientesActivosPorIdResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPacientesActivosPorIdReturn" type="tns1:Usuario"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="olvidoContraseña">
+    <complexType>
+     <sequence>
+      <element name="mail" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="olvidoContraseñaResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.medmanager.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Usuario">
+    <sequence>
+     <element name="activo" type="xsd:boolean"/>
+     <element name="apellido" nillable="true" type="xsd:string"/>
+     <element name="confirmado" type="xsd:boolean"/>
+     <element name="fechaNac" nillable="true" type="xsd:dateTime"/>
+     <element name="mail" nillable="true" type="xsd:string"/>
+     <element name="matricula" nillable="true" type="xsd:string"/>
+     <element name="medico_referente_id" type="xsd:int"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+     <element name="tipo" type="xsd:int"/>
+     <element name="tratamiento" nillable="true" type="xsd:string"/>
+     <element name="usuario_id" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="logeoUsuarioRequest">
+
+      <wsdl:part element="impl:logeoUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="logeoUsuarioResponse">
+
+      <wsdl:part element="impl:logeoUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPacientesActivosPorIdResponse">
+
+      <wsdl:part element="impl:getPacientesActivosPorIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validarUsuarioResponse">
+
+      <wsdl:part element="impl:validarUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registrarMedicoResponse">
+
+      <wsdl:part element="impl:registrarMedicoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="esUsuarioConfirmadoRequest">
+
+      <wsdl:part element="impl:esUsuarioConfirmado" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="existeMailResponse">
+
+      <wsdl:part element="impl:existeMailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="olvidoContraseñaRequest">
+
+      <wsdl:part element="impl:olvidoContraseña" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPacientesActivosPorIdRequest">
+
+      <wsdl:part element="impl:getPacientesActivosPorId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registrarMedicoRequest">
+
+      <wsdl:part element="impl:registrarMedico" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validarUsuarioRequest">
+
+      <wsdl:part element="impl:validarUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="esUsuarioConfirmadoResponse">
+
+      <wsdl:part element="impl:esUsuarioConfirmadoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="olvidoContraseñaResponse">
+
+      <wsdl:part element="impl:olvidoContraseñaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="existeMailRequest">
+
+      <wsdl:part element="impl:existeMail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="UsuarioService">
+
+      <wsdl:operation name="existeMail">
+
+         <wsdl:input message="impl:existeMailRequest" name="existeMailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:existeMailResponse" name="existeMailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logeoUsuario">
+
+         <wsdl:input message="impl:logeoUsuarioRequest" name="logeoUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:logeoUsuarioResponse" name="logeoUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registrarMedico">
+
+         <wsdl:input message="impl:registrarMedicoRequest" name="registrarMedicoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registrarMedicoResponse" name="registrarMedicoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validarUsuario">
+
+         <wsdl:input message="impl:validarUsuarioRequest" name="validarUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:validarUsuarioResponse" name="validarUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="esUsuarioConfirmado">
+
+         <wsdl:input message="impl:esUsuarioConfirmadoRequest" name="esUsuarioConfirmadoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:esUsuarioConfirmadoResponse" name="esUsuarioConfirmadoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPacientesActivosPorId">
+
+         <wsdl:input message="impl:getPacientesActivosPorIdRequest" name="getPacientesActivosPorIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPacientesActivosPorIdResponse" name="getPacientesActivosPorIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="olvidoContraseña">
+
+         <wsdl:input message="impl:olvidoContraseñaRequest" name="olvidoContraseñaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:olvidoContraseñaResponse" name="olvidoContraseñaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="UsuarioServiceSoapBinding" type="impl:UsuarioService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="existeMail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="existeMailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="existeMailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logeoUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="logeoUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="logeoUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registrarMedico">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registrarMedicoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registrarMedicoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validarUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validarUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validarUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="esUsuarioConfirmado">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="esUsuarioConfirmadoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="esUsuarioConfirmadoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPacientesActivosPorId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPacientesActivosPorIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPacientesActivosPorIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="olvidoContraseña">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="olvidoContraseñaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="olvidoContraseñaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="UsuarioServiceService">
+
+      <wsdl:port binding="impl:UsuarioServiceSoapBinding" name="UsuarioService">
+
+         <wsdlsoap:address location="http://localhost:8080/MedManager/services/UsuarioService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+
+header, main, footer {
+	padding-left: 300px;
+}
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
+}
+.box {
+	width: 200px;
+	height: 100px;
+	border: 5px solid #666;
+	margin: 50px;
+	position: relative;
+}
+.nav_thin{
+	height:50px;
+}
+.circle {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: sans-serif;
+	color: #fff;
+	position: absolute;
+}
+.divPrincipal{
+	height:5px;
+}

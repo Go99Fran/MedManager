@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.service.medmanager.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.service.medmanager.com" xmlns:intf="http://impl.service.medmanager.com" xmlns:tns1="http://model.medmanager.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.service.medmanager.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.medmanager.com"/>
+   <element name="accionPaso">
+    <complexType>
+     <sequence>
+      <element name="id_usuario" type="xsd:string"/>
+      <element name="idPaso" type="xsd:string"/>
+      <element name="opcion" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="accionPasoResponse">
+    <complexType/>
+   </element>
+   <element name="getPasosPorIdTratamiento">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPasosPorIdTratamientoResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPasosPorIdTratamientoReturn" type="tns1:Paso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPasosPorIdPaciente">
+    <complexType>
+     <sequence>
+      <element name="id_usuario" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPasosPorIdPacienteResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPasosPorIdPacienteReturn" type="tns1:Paso"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.medmanager.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Paso">
+    <sequence>
+     <element name="descripcion" nillable="true" type="xsd:string"/>
+     <element name="estado_cod" type="xsd:int"/>
+     <element name="fecha_accion" nillable="true" type="xsd:dateTime"/>
+     <element name="fecha_accion_sugerida" nillable="true" type="xsd:dateTime"/>
+     <element name="idPaso" type="xsd:int"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getPasosPorIdTratamientoRequest">
+
+      <wsdl:part element="impl:getPasosPorIdTratamiento" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="accionPasoResponse">
+
+      <wsdl:part element="impl:accionPasoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="accionPasoRequest">
+
+      <wsdl:part element="impl:accionPaso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPasosPorIdPacienteRequest">
+
+      <wsdl:part element="impl:getPasosPorIdPaciente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPasosPorIdTratamientoResponse">
+
+      <wsdl:part element="impl:getPasosPorIdTratamientoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPasosPorIdPacienteResponse">
+
+      <wsdl:part element="impl:getPasosPorIdPacienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PasoService">
+
+      <wsdl:operation name="accionPaso">
+
+         <wsdl:input message="impl:accionPasoRequest" name="accionPasoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:accionPasoResponse" name="accionPasoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPasosPorIdTratamiento">
+
+         <wsdl:input message="impl:getPasosPorIdTratamientoRequest" name="getPasosPorIdTratamientoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPasosPorIdTratamientoResponse" name="getPasosPorIdTratamientoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPasosPorIdPaciente">
+
+         <wsdl:input message="impl:getPasosPorIdPacienteRequest" name="getPasosPorIdPacienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPasosPorIdPacienteResponse" name="getPasosPorIdPacienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PasoServiceSoapBinding" type="impl:PasoService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="accionPaso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="accionPasoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="accionPasoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPasosPorIdTratamiento">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPasosPorIdTratamientoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPasosPorIdTratamientoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPasosPorIdPaciente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPasosPorIdPacienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPasosPorIdPacienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PasoServiceService">
+
+      <wsdl:port binding="impl:PasoServiceSoapBinding" name="PasoService">
+
+         <wsdlsoap:address location="http://localhost:8080/MedManager/services/PasoService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

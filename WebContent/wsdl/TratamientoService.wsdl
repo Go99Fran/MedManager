@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.service.medmanager.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.service.medmanager.com" xmlns:intf="http://impl.service.medmanager.com" xmlns:tns1="http://model.medmanager.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.service.medmanager.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.medmanager.com"/>
+   <element name="inactivarTratamientoPorIdTratamiento">
+    <complexType>
+     <sequence>
+      <element name="idTratamiento" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inactivarTratamientoPorIdTratamientoResponse">
+    <complexType/>
+   </element>
+   <element name="getClasificacionRiesgo">
+    <complexType>
+     <sequence>
+      <element name="cis" type="xsd:string"/>
+      <element name="cantTumores" type="xsd:string"/>
+      <element name="tamanoTumores" type="xsd:string"/>
+      <element name="tumor" type="xsd:string"/>
+      <element name="grado" type="xsd:string"/>
+      <element name="inicio" type="xsd:string"/>
+      <element name="clasif" type="xsd:string"/>
+      <element name="compromisoUretral" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getClasificacionRiesgoResponse">
+    <complexType>
+     <sequence>
+      <element name="getClasificacionRiesgoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addTratamientoById">
+    <complexType>
+     <sequence>
+      <element name="riesgo" type="xsd:string"/>
+      <element name="fechaCero" type="xsd:string"/>
+      <element name="titulo" type="xsd:string"/>
+      <element name="cantTumores" type="xsd:string"/>
+      <element name="tamañoTumores" type="xsd:string"/>
+      <element name="tumor" type="xsd:string"/>
+      <element name="grado" type="xsd:string"/>
+      <element name="inicio" type="xsd:string"/>
+      <element name="clasif" type="xsd:string"/>
+      <element name="id_medico" type="xsd:string"/>
+      <element name="cis" type="xsd:string"/>
+      <element name="id_paciente" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addTratamientoByIdResponse">
+    <complexType>
+     <sequence>
+      <element name="addTratamientoByIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTratamientosActivosPorId">
+    <complexType>
+     <sequence>
+      <element name="id_medico" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTratamientosActivosPorIdResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getTratamientosActivosPorIdReturn" type="tns1:TratamientoPaciente"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.medmanager.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="TratamientoPaciente">
+    <sequence>
+     <element name="cant_tumores" nillable="true" type="xsd:string"/>
+     <element name="cis" nillable="true" type="xsd:string"/>
+     <element name="clasificacionTratamiento" nillable="true" type="xsd:string"/>
+     <element name="estado_COD" type="xsd:boolean"/>
+     <element name="fechaCero" nillable="true" type="xsd:dateTime"/>
+     <element name="grado_tumor" nillable="true" type="xsd:string"/>
+     <element name="inicio_tumor" nillable="true" type="xsd:string"/>
+     <element name="medico_id" type="xsd:int"/>
+     <element name="paciente_id" type="xsd:int"/>
+     <element name="riesgo" nillable="true" type="xsd:string"/>
+     <element name="tamañoTumoral_cod" nillable="true" type="xsd:string"/>
+     <element name="tipo_tumor_cod" nillable="true" type="xsd:string"/>
+     <element name="titulo" nillable="true" type="xsd:string"/>
+     <element name="tratamientoPaciente_id" type="xsd:int"/>
+     <element name="tratamiento_id" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getClasificacionRiesgoResponse">
+
+      <wsdl:part element="impl:getClasificacionRiesgoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addTratamientoByIdResponse">
+
+      <wsdl:part element="impl:addTratamientoByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTratamientosActivosPorIdRequest">
+
+      <wsdl:part element="impl:getTratamientosActivosPorId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inactivarTratamientoPorIdTratamientoRequest">
+
+      <wsdl:part element="impl:inactivarTratamientoPorIdTratamiento" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inactivarTratamientoPorIdTratamientoResponse">
+
+      <wsdl:part element="impl:inactivarTratamientoPorIdTratamientoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTratamientosActivosPorIdResponse">
+
+      <wsdl:part element="impl:getTratamientosActivosPorIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getClasificacionRiesgoRequest">
+
+      <wsdl:part element="impl:getClasificacionRiesgo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addTratamientoByIdRequest">
+
+      <wsdl:part element="impl:addTratamientoById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TratamientoService">
+
+      <wsdl:operation name="inactivarTratamientoPorIdTratamiento">
+
+         <wsdl:input message="impl:inactivarTratamientoPorIdTratamientoRequest" name="inactivarTratamientoPorIdTratamientoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:inactivarTratamientoPorIdTratamientoResponse" name="inactivarTratamientoPorIdTratamientoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getClasificacionRiesgo">
+
+         <wsdl:input message="impl:getClasificacionRiesgoRequest" name="getClasificacionRiesgoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getClasificacionRiesgoResponse" name="getClasificacionRiesgoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addTratamientoById">
+
+         <wsdl:input message="impl:addTratamientoByIdRequest" name="addTratamientoByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addTratamientoByIdResponse" name="addTratamientoByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTratamientosActivosPorId">
+
+         <wsdl:input message="impl:getTratamientosActivosPorIdRequest" name="getTratamientosActivosPorIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTratamientosActivosPorIdResponse" name="getTratamientosActivosPorIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TratamientoServiceSoapBinding" type="impl:TratamientoService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="inactivarTratamientoPorIdTratamiento">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="inactivarTratamientoPorIdTratamientoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="inactivarTratamientoPorIdTratamientoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getClasificacionRiesgo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getClasificacionRiesgoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getClasificacionRiesgoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addTratamientoById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addTratamientoByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addTratamientoByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTratamientosActivosPorId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTratamientosActivosPorIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTratamientosActivosPorIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TratamientoServiceService">
+
+      <wsdl:port binding="impl:TratamientoServiceSoapBinding" name="TratamientoService">
+
+         <wsdlsoap:address location="http://localhost:8080/MedManager/services/TratamientoService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

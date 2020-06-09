@@ -1,0 +1,13 @@
+.divPrincipal{
+	height:5px;
+}
+@media only screen and (max-width : 992px) {
+	.paso{
+		height:270px;
+	}
+}
+@media only screen and (min-width : 992px) {
+	.paso{
+		height:200px;
+	}
+}
